@@ -1,64 +1,27 @@
 # Algorithm Analysis
 
-**Four C++ coursework programs, with regression checks added for zero-size inputs, invalid graph sizes and cycles.**
+This repository contains four C++ programs from my algorithm-analysis coursework. They cover max heaps, recursive and dynamic-programming solutions, optimisation and depth-first graph traversal.
 
-![Algorithms with checked edge cases.](assets/readme-overview.png)
+## Programs
 
-[What I built](#what-i-built) · [My role](#my-role) · [Code and reproduction](#code-and-reproduction) · [Portfolio](https://github.com/oldprize47-SH)
+- [HW1](ALgorithm_HW1_21800275_SangheonPark.cpp): max-heap operations.
+- [HW3](ALgorithm_HW3_21800275_SangheonPark.cpp): recursive and dynamic-programming approaches to the minimum-attempt problem.
+- [HW4](ALgorithm_HW4_21800275_SangheonPark.cpp): an optimisation comparison.
+- [HW5](ALgorithm_HW5_21800275_SangheonPark.cpp): DFS and topological ordering for an acyclic graph.
 
-## What I built
+During the portfolio cleanup, I added regression tests for boundary cases. They caught an out-of-bounds access for zero floors and a graph output that incorrectly presented a cyclic graph as having a topological order. This fork fixes those cases and rejects invalid graph sizes.
 
-| Deliverable | What it does | Explore |
-|---|---|---|
-| **Dynamic programming** | Compare recursive and DP solutions | [Source / result](ALgorithm_HW3_21800275_SangheonPark.cpp) |
-| **Graph traversal** | DFS and cycle-aware output | [Source / result](ALgorithm_HW5_21800275_SangheonPark.cpp) |
-| **Executable checks** | Five compile-and-run regression tests | [Source / result](tests/test_regressions.py) |
+## Build and tests
 
-### Result at a glance
-
-4 programs compiled with GCC 14.2.0; 5 regression tests passed on 28 Sep 2026. Existing HW1/HW3 warnings remain.
-
-## My role
-
-The source retains its course references and existing AI/tool attribution. This portfolio fork adds a small regression suite and fixes demonstrated boundary/output defects; it does not replace the original coursework history.
-
-## How it works
-
-```mermaid
-flowchart LR
-    N0["Heap operations"] --> N1
-    N1["Recursive vs DP"] --> N2
-    N2["Graph traversal"]
-```
-
-The diagram is a reading route through separate exercises, not one integrated runtime.
-
-## Code and reproduction
-
-## Build and verify
-
-With `g++` and Python on PATH, from the repository root:
+With GCC and Python installed, run these commands from the repository root:
 
 ```sh
 g++ -std=c++17 -Wall -Wextra ALgorithm_HW3_21800275_SangheonPark.cpp -o hw3
 python -m unittest discover -s tests -v
 ```
 
-On 2026-09-28, all four programs compiled with GCC 14.2.0. Existing warnings in
-HW1/HW3 remain. The five regression tests passed after an expected failing run:
+All four programs compiled with GCC 14.2.0 on 28 September 2026. Five regression tests passed. Existing warnings in HW1 and HW3 remain, and the full timing experiment in HW4 was not repeated.
 
-- zero-floor DP returns zero without indexing outside the vector;
-- the 10-floor, 2-object case returns four attempts in both methods;
-- a cyclic graph is not presented as having a topological order;
-- a three-node DAG preserves its edge ordering;
-- zero, oversized and nonnumeric graph sizes are rejected.
+The [tests](tests/test_regressions.py) cover zero floors, the 10-floor/two-object case, cycles, a small DAG and invalid graph sizes. They do not establish correctness or performance for every possible input. Original course references and AI/tool attribution remain in the source.
 
-The tests enable libstdc++ debug checks. They do not establish correctness of every
-algorithm or the timing claims in the historical comments. HW4 can be expensive;
-its full timing experiment was not repeated.
-
-## Source and credits
-
-[Original repository](https://github.com/oldprize47/Algorithm-Analysis_2025) · [Portfolio home](https://github.com/oldprize47-SH)
-
-Course scaffolding, team contributions and third-party assets retain their original attribution. This documentation does not grant a new licence.
+[Original repository](https://github.com/oldprize47/Algorithm-Analysis_2025). Original history and attribution are retained.
