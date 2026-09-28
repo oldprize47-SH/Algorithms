@@ -132,7 +132,7 @@ void printGraph(Graph* graph) {
 }
 
 // Depth First Search Visit function
-void DFS_VISIT(Graph* graph, int u, COLOR color[], int* time, int d[], int f[]) {
+void DFS_VISIT(Graph* graph, int u, COLOR color[], int* time, int d[], int f[], bool& hasCycle) {
     int v = 0;
     color[u] = GRAY;
     d[u] = ++(*time);  // Record discovery time
@@ -140,7 +140,9 @@ void DFS_VISIT(Graph* graph, int u, COLOR color[], int* time, int d[], int f[]) 
     while (current != NULL) {
         v = getVertexIndex(graph, current->label);
         if (color[v] == WHITE)
-            DFS_VISIT(graph, v, color, time, d, f);
+            DFS_VISIT(graph, v, color, time, d, f, hasCycle);
+        else if (color[v] == GRAY)
+            hasCycle = true;
         current = current->next;
     }
     color[u] = BLACK;  // Mark as finished
@@ -148,7 +150,8 @@ void DFS_VISIT(Graph* graph, int u, COLOR color[], int* time, int d[], int f[]) 
 }
 
 // Depth First Search function
-void DFS(Graph* graph, COLOR color[], int* time, int d[], int f[]) {
+void DFS(Graph* graph, COLOR color[], int* time, int d[], int f[], bool& hasCycle) {
+    hasCycle = false;
     // Initialize all nodes to unvisited
     for (int i = 0; i < graph->numVertices; i++) {
         color[i] = WHITE;
@@ -156,7 +159,7 @@ void DFS(Graph* graph, COLOR color[], int* time, int d[], int f[]) {
     *time = 0;
     for (int i = 0; i < graph->numVertices; i++) {
         if (color[i] == WHITE) {
-            DFS_VISIT(graph, i, color, time, d, f);
+            DFS_VISIT(graph, i, color, time, d, f, hasCycle);
         }
     }
 }
@@ -192,7 +195,11 @@ int main() {
     int size;
     Graph* graph = createGraph();
     printf("Enter the number of nodes: ");
-    scanf(" %d", &size);
+    if (scanf(" %d", &size) != 1 || size < 1 || size > MAX_NODES) {
+        printf("Error: number of nodes must be between 1 and 10\n");
+        freeGraph(graph);
+        return 1;
+    }
 
     // Add nodes
     for (int i = 0; i < size; i++) {
@@ -236,7 +243,8 @@ int main() {
     int d[MAX_NODES];  // Discovery times
     int f[MAX_NODES];  // Finishing times
 
-    DFS(graph, color, &time, d, f);
+    bool hasCycle = false;
+    DFS(graph, color, &time, d, f, hasCycle);
 
     printf("\nDFS Results:\n");
     for (int i = 0; i < graph->numVertices; i++) {
@@ -248,6 +256,12 @@ int main() {
         else if (color[i] == BLACK)
             printf("BLACK");
         printf("\n");
+    }
+
+    if (hasCycle) {
+        printf("\nTopological order unavailable: graph contains a cycle.\n");
+        freeGraph(graph);
+        return 0;
     }
 
     QuickSort(f, idx, 0, graph->numVertices - 1);

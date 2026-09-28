@@ -73,6 +73,7 @@ int recursive(int k, int n) {
 }
 
 int DP(int k, int n) {  // DP Table: dp[i][j] represents minimum attempts for i objects and j meters
+    if (n == 0) return 0;
     vector<vector<int>> dp(k + 1, vector<int>(n + 1, 0));
     int p = 0;
     // Fill base cases
