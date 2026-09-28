@@ -13,6 +13,14 @@ During the portfolio cleanup, I added regression tests for boundary cases. They 
 
 [HW6](ALgorithm_HW6_21800275_SangheonPark.cpp) computes shortest paths with Dijkstra and Floyd–Warshall using [homework6.data](homework6.data). Run it from the repository root. Both output matrices matched an independent shortest-path calculation for the supplied ten-city graph. [ALgorithm_DFS_CPP.cpp](ALgorithm_DFS_CPP.cpp) is an unfinished practice file, separate from the completed assignments.
 
+## What I practised
+
+The heap exercise represents a priority structure as an array and maintains its ordering as values are inserted, removed or increased. HW3 solves the same minimum-attempt problem using recursion and dynamic programming: the comparison is about how the subproblems are represented and reused, not just whether both versions print an answer.
+
+HW4 compares approaches to a knapsack problem, including exhaustive search, a greedy approach, dynamic programming and branch and bound. Its greedy calculation permits fractional filling, so that result must not be presented as an exact solution to every 0/1 knapsack instance. The timing code is useful for studying the implementations, but the archived timings are not a new performance benchmark.
+
+HW5 explores a graph with depth-first search. A topological ordering is meaningful only for an acyclic directed graph, which is why the fork now rejects the cyclic case instead of printing a misleading order. HW6 reads a weighted matrix from a text file, interprets `INF` as no direct edge, and prints all-pairs shortest-path tables. Dijkstra repeats a single-source search; Floyd–Warshall updates distances through each possible intermediate vertex.
+
 ## Build and tests
 
 With GCC and Python installed, run these commands from the repository root:
@@ -21,6 +29,15 @@ With GCC and Python installed, run these commands from the repository root:
 g++ -std=c++17 -Wall -Wextra ALgorithm_HW3_21800275_SangheonPark.cpp -o hw3
 python -m unittest discover -s tests -v
 ```
+
+To try the supplied shortest-path example, build HW6 and run it from the directory containing `homework6.data`:
+
+```sh
+g++ -std=c++17 -Wall -Wextra ALgorithm_HW6_21800275_SangheonPark.cpp -o hw6
+./hw6
+```
+
+On Windows PowerShell, the executable is `./hw6.exe`. The output includes the graph representation and two distance tables. Matching tables on this example help check the implementations, but do not validate every disconnected graph, invalid input or edge-weight condition.
 
 All five coursework programs and the DFS practice file compiled with GCC 14.2.0 on 28 September 2026. Five regression tests passed. Existing warnings in HW1 and HW3 remain, and the full timing experiment in HW4 was not repeated.
 
