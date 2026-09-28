@@ -1,24 +1,39 @@
 # Algorithm Analysis
 
-![Algorithm Analysis overview](assets/portfolio-cover.png)
+**Four C++ coursework programs, with regression checks added for zero-size inputs, invalid graph sizes and cycles.**
 
-Four C++ coursework programs exploring heaps, recursive versus dynamic-programming search, optimisation and depth-first graph traversal.
+![Algorithms with checked edge cases.](assets/readme-overview.png)
 
-[Portfolio home](https://github.com/oldprize47-SH) · [Original repository](https://github.com/oldprize47/Algorithm-Analysis_2025)
+[What I built](#what-i-built) · [My role](#my-role) · [Code and reproduction](#code-and-reproduction) · [Portfolio](https://github.com/oldprize47-SH)
 
-## Contribution and context
+## What I built
+
+| Deliverable | What it does | Explore |
+|---|---|---|
+| **Dynamic programming** | Compare recursive and DP solutions | [Source / result](ALgorithm_HW3_21800275_SangheonPark.cpp) |
+| **Graph traversal** | DFS and cycle-aware output | [Source / result](ALgorithm_HW5_21800275_SangheonPark.cpp) |
+| **Executable checks** | Five compile-and-run regression tests | [Source / result](tests/test_regressions.py) |
+
+### Result at a glance
+
+4 programs compiled with GCC 14.2.0; 5 regression tests passed on 28 Sep 2026. Existing HW1/HW3 warnings remain.
+
+## My role
 
 The source retains its course references and existing AI/tool attribution. This portfolio fork adds a small regression suite and fixes demonstrated boundary/output defects; it does not replace the original coursework history.
 
-## Code map
+## How it works
 
-| Entry | Purpose |
-|---|---|
-| [ALgorithm_HW1_21800275_SangheonPark.cpp](ALgorithm_HW1_21800275_SangheonPark.cpp) | Max-heap exercise |
-| [ALgorithm_HW3_21800275_SangheonPark.cpp](ALgorithm_HW3_21800275_SangheonPark.cpp) | Recursive and DP minimum-attempt comparison |
-| [ALgorithm_HW4_21800275_SangheonPark.cpp](ALgorithm_HW4_21800275_SangheonPark.cpp) | Optimisation comparison |
-| [ALgorithm_HW5_21800275_SangheonPark.cpp](ALgorithm_HW5_21800275_SangheonPark.cpp) | DFS and conditional topological ordering |
-| [tests/test_regressions.py](tests/test_regressions.py) | Compile-and-execute regression tests |
+```mermaid
+flowchart LR
+    N0["Heap operations"] --> N1
+    N1["Recursive vs DP"] --> N2
+    N2["Graph traversal"]
+```
+
+The diagram is a reading route through separate exercises, not one integrated runtime.
+
+## Code and reproduction
 
 ## Build and verify
 
@@ -42,9 +57,8 @@ The tests enable libstdc++ debug checks. They do not establish correctness of ev
 algorithm or the timing claims in the historical comments. HW4 can be expensive;
 its full timing experiment was not repeated.
 
-## Archive policy
+## Source and credits
 
-The fork retains upstream history, source attributions and course material. The
-portfolio documentation does not assign a new licence or claim sole authorship
-of inherited code. Current checks are stated above; an untested component is not
-presented as verified.
+[Original repository](https://github.com/oldprize47/Algorithm-Analysis_2025) · [Portfolio home](https://github.com/oldprize47-SH)
+
+Course scaffolding, team contributions and third-party assets retain their original attribution. This documentation does not grant a new licence.
