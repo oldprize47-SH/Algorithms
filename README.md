@@ -10,6 +10,8 @@
 
 ## 한국어
 
+[코드 읽는 순서](#코드-따라-읽기)
+
 
 
 이 저장소에는 2025년 알고리즘 분석 수업에서 작성한 C++ 프로그램 다섯 개가 있습니다. 최대 힙, 재귀 및 동적 계획법을 이용한 풀이, 최적화, 깊이 우선 그래프 탐색, 최단 경로를 다룹니다.
@@ -24,11 +26,11 @@
 
 
 
-![프로젝트 목표: algorithm-analysis](docs/goals/project-focus-v1.png)
+![프로젝트 목표: algorithm-analysis](docs/goals/goal.png)
 
 
 
-AI로 생성한 콘셉트 일러스트입니다. 기기의 외형, 인터페이스 배치, 예시 그래픽은 설명을 위한 표현이며, 실제 프로젝트 사진이나 측정 결과가 아닙니다.
+<sub>AI 생성 개념도</sub>
 
 
 
@@ -48,7 +50,7 @@ AI로 생성한 콘셉트 일러스트입니다. 기기의 외형, 인터페이�
 
 
 
-각 행을 따라가며 독립적인 실습이나 작업 흐름을 살펴볼 수 있습니다. 저장소 전체가 하나로 연결된 애플리케이션은 아니라는 점을 참고하면 구성을 이해하기 쉽습니다. [SVG](docs/flowcharts/algorithms.svg)
+<sub>[SVG](docs/flowcharts/algorithms.svg)</sub>
 
 
 
@@ -142,6 +144,18 @@ Windows PowerShell에서는 실행 파일이 `./hw6.exe`입니다. 출력에는 
 
 
 
+### 코드 따라 읽기
+
+아래 순서는 파일의 역할과 연결을 이해하기 위한 안내입니다. 독립 과제나 보드별 프로그램은 한꺼번에 실행하지 않고 해당 항목의 실행 안내를 따릅니다.
+
+| 순서 | 파일 | 역할과 다음 단계 |
+|---|---|---|
+| 1 | [ALgorithm_HW1_21800275_SangheonPark.cpp](ALgorithm_HW1_21800275_SangheonPark.cpp) | 메뉴 입력이 최대 힙의 삽입·조회·수정으로 연결되는 독립 프로그램입니다. |
+| 2 | [ALgorithm_HW3_21800275_SangheonPark.cpp](ALgorithm_HW3_21800275_SangheonPark.cpp) | N과 K를 입력받아 재귀와 동적 계획법의 결과·시간을 비교합니다. 입력 제한을 먼저 읽습니다. |
+| 3 | [ALgorithm_HW4_21800275_SangheonPark.cpp](ALgorithm_HW4_21800275_SangheonPark.cpp) | 물건의 값·무게와 우선순위 큐를 사용하는 최적화 실습입니다. 후보 생성과 경계 계산을 따라갑니다. |
+| 4 | [ALgorithm_HW5_21800275_SangheonPark.cpp](ALgorithm_HW5_21800275_SangheonPark.cpp) | 그래프 크기 검사를 시작으로 입력과 탐색 결과를 살펴봅니다. 각 과제의 main은 따로 빌드합니다. |
+| 5 | [tests/test_regressions.py](tests/test_regressions.py) | 회귀 테스트가 어떤 입력을 넣고 결과를 확인하는지 읽어 재현 예시로 사용합니다. |
+
 ---
 
 
@@ -149,6 +163,8 @@ Windows PowerShell에서는 실행 파일이 `./hw6.exe`입니다. 출력에는 
 <a id="english"></a>
 
 ## English
+
+[Code walkthrough](#code-walkthrough)
 
 
 
@@ -168,11 +184,11 @@ Implement different algorithmic approaches and understand how their answers, ass
 
 
 
-![Project goal: algorithm-analysis](docs/goals/project-focus-v1.png)
+![Project goal: algorithm-analysis](docs/goals/goal.png)
 
 
 
-AI-generated concept illustration. Device appearance, interface layout and example graphics are illustrative, not project photographs or measured results.
+<sub>AI-generated concept illustration</sub>
 
 
 
@@ -192,7 +208,7 @@ The graph exercises connect to route selection and network analysis, while the h
 
 
 
-You can read each row as an independent exercise or workflow. The repository brings these exercises together, but they do not form one connected application. [SVG](docs/flowcharts/algorithms.svg)
+<sub>[SVG](docs/flowcharts/algorithms.svg)</sub>
 
 
 
@@ -284,3 +300,14 @@ The [tests](tests/test_regressions.py) cover zero floors, the 10-floor/two-objec
 
 [Original repository](https://github.com/oldprize47/Algorithm-Analysis_2025). Original history and attribution are retained.
 
+### Code walkthrough
+
+Use this order to understand each file and its connections. Independent exercises and board targets are not one executable; follow the relevant run instructions below.
+
+| Step | File | Role and next step |
+|---|---|---|
+| 1 | [ALgorithm_HW1_21800275_SangheonPark.cpp](ALgorithm_HW1_21800275_SangheonPark.cpp) | Trace menu input into an independent maximum-heap program. |
+| 2 | [ALgorithm_HW3_21800275_SangheonPark.cpp](ALgorithm_HW3_21800275_SangheonPark.cpp) | Read the N/K input limits, then compare recursive and dynamic-programming results and timing. |
+| 3 | [ALgorithm_HW4_21800275_SangheonPark.cpp](ALgorithm_HW4_21800275_SangheonPark.cpp) | Follow item values/weights, candidate generation and bound calculations in the priority-queue optimisation exercise. |
+| 4 | [ALgorithm_HW5_21800275_SangheonPark.cpp](ALgorithm_HW5_21800275_SangheonPark.cpp) | Begin with graph-size validation and follow input to traversal output; compile each assignment main separately. |
+| 5 | [tests/test_regressions.py](tests/test_regressions.py) | Use the regression inputs and assertions as reproducible examples. |
