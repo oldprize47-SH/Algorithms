@@ -1,19 +1,39 @@
 # Algorithm Analysis
 
-This repository contains five C++ coursework programs from my algorithm-analysis coursework. They cover max heaps, recursive and dynamic-programming solutions, optimisation and depth-first graph traversal and shortest paths.
+This repository contains five C++ programs from the 2025 algorithm-analysis coursework. They cover max heaps, recursive and dynamic-programming solutions, optimisation and depth-first graph traversal and shortest paths.
+
+## Project goal
+
+Implement different algorithmic approaches and understand how their answers, assumptions and computational work compare.
+
+![Project goal: algorithm-analysis](docs/goals/project-focus-v1.png)
+
+AI-generated concept illustration. Device appearance, interface layout and example graphics are illustrative, not project photographs or measured results.
+
+## Where it could be used
+
+The graph exercises connect to route selection and network analysis, while the heap and other data-structure exercises show how a program can organise work efficiently. The implementations can be used as small, inspectable examples for comparing algorithm choices before adapting an approach to a larger routing or resource-allocation problem. They are coursework programs, not deployed planning services.
+
+## At a glance
+
+![Algorithm-analysis coursework](docs/flowcharts/algorithms.png)
+
+Each row describes an independent exercise or workflow; the repository is not one connected application. [SVG](docs/flowcharts/algorithms.svg)
 
 ## Programs
+
+These are Sangheon Park's coursework submissions. Course references and existing AI/tool credits remain in the source.
 
 - [HW1](ALgorithm_HW1_21800275_SangheonPark.cpp): max-heap operations.
 - [HW3](ALgorithm_HW3_21800275_SangheonPark.cpp): recursive and dynamic-programming approaches to the minimum-attempt problem.
 - [HW4](ALgorithm_HW4_21800275_SangheonPark.cpp): an optimisation comparison.
 - [HW5](ALgorithm_HW5_21800275_SangheonPark.cpp): DFS and topological ordering for an acyclic graph.
 
-During the portfolio cleanup, I added regression tests for boundary cases. They caught an out-of-bounds access for zero floors and a graph output that incorrectly presented a cyclic graph as having a topological order. This fork fixes those cases and rejects invalid graph sizes.
+The portfolio update added regression tests for boundary cases. They caught an out-of-bounds access for zero floors and a graph output that incorrectly presented a cyclic graph as having a topological order. This fork fixes those cases and rejects invalid graph sizes.
 
 [HW6](ALgorithm_HW6_21800275_SangheonPark.cpp) computes shortest paths with Dijkstra and Floyd–Warshall using [homework6.data](homework6.data). Run it from the repository root. Both output matrices matched an independent shortest-path calculation for the supplied ten-city graph. [ALgorithm_DFS_CPP.cpp](ALgorithm_DFS_CPP.cpp) is an unfinished practice file, separate from the completed assignments.
 
-## What I practised
+## What the programs demonstrate
 
 The heap exercise represents a priority structure as an array and maintains its ordering as values are inserted, removed or increased. HW3 solves the same minimum-attempt problem using recursion and dynamic programming: the comparison is about how the subproblems are represented and reused, not just whether both versions print an answer.
 
